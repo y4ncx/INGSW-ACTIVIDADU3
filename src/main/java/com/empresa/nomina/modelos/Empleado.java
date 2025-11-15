@@ -6,6 +6,8 @@ public abstract class Empleado {
     protected int tiempoEnEmpresa;
     protected double salarioBase;
 
+    // Constructor generico con excepciones para numeros negativos (para no romper la logica)
+
     public Empleado(String nombre, String id, int tiempoEnEmpresa, double salarioBase) {
         if (tiempoEnEmpresa < 0) {
             throw new IllegalArgumentException("El tiempo en empresa no puede ser negativo");
@@ -23,14 +25,20 @@ public abstract class Empleado {
 
     }
 
+    // metodos abstractos que cada tipo de empleado va a implementar
+
     public abstract double calcularSalarioBruto();
     public abstract double calcularBeneficios();
     public abstract double calcularDeducciones();
+
+
+    //metodo comun
 
     public double calcularSalarioNeto() {
         return calcularSalarioBruto() + calcularBeneficios() + calcularDeducciones();
     }
 
+    // Getters
 
     public String getNombre() {
         return nombre;
@@ -47,4 +55,7 @@ public abstract class Empleado {
     public double getSalarioBase() {
         return salarioBase;
     }
+
+
+    //Sin Setters, ya que no se deberia modificar los datos de un empleado una vez haya sido creado.
 }
