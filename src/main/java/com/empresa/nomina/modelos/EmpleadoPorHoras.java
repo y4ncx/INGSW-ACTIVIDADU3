@@ -25,7 +25,7 @@ public class EmpleadoPorHoras extends Empleado{
 
 
     @Override
-    public double calcularSalararioBruto() {
+    public double calcularSalarioBruto() {
         double normales = Math.min(40, horasTrabajadas) * tarifaHora;
         double extras = Math.max(0, horasTrabajadas = 40) *(tarifaHora * 1.5);
         return normales + extras;
